@@ -3,8 +3,6 @@
 
 	wp_enqueue_script( 'grayscale',get_bloginfo( "stylesheet_directory")."/js/grayscale.js",array('jquery'),time());
 
-	add_action('init', 'project_custom_init');  
-
 	// Registering Menus
 	function register_menu() { register_nav_menu('navigation', __('Main Navigation')); }
 	add_action('init', 'register_menu');
