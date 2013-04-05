@@ -132,11 +132,12 @@ function portfolio_messages($messages)
 	
 } // function: portfolio_messages END
 
-// function: portfolio_filter BEGIN
-function portfolio_filter()
+// function: portfolio_filters BEGIN
+function portfolio_filters()
 {
+	
 	// Register the Taxonomy
-	register_taxonomy(__( "filter" ), 
+	register_taxonomy(__( "type" ), 
 	
 	// Assign the taxonomy to be part of the portfolio post type
 	array(__( "portfolio" )), 
@@ -144,21 +145,57 @@ function portfolio_filter()
 	// Apply the settings for the taxonomy
 	array(
 		"hierarchical" => true, 
-		"label" => __( "Filter" ), 
-		"singular_label" => __( "Filter" ), 
+		"label" => __( "Types" ), 
+		"singular_label" => __( "Type" ), 
 		"rewrite" => array(
-				'slug' => 'filter', 
+				'slug' => 'type', 
 				'hierarchical' => true
 				)
 		)
-	); 
-} // function: portfolio_filter END
+	);
+
+	
+	// Register the Taxonomy
+	register_taxonomy(__( "range" ), 
+	
+	// Assign the taxonomy to be part of the portfolio post type
+	array(__( "portfolio" )), 
+	
+	// Apply the settings for the taxonomy
+	array(
+		"hierarchical" => true, 
+		"label" => __( "Ranges" ), 
+		"singular_label" => __( "Range" ), 
+		"rewrite" => array(
+				'slug' => 'range', 
+				'hierarchical' => true
+				)
+		)
+	);
+
+	
+	// Register the Taxonomy
+	register_taxonomy(__( "material" ), 
+	
+	// Assign the taxonomy to be part of the portfolio post type
+	array(__( "portfolio" )), 
+	
+	// Apply the settings for the taxonomy
+	array(
+		"hierarchical" => true, 
+		"label" => __( "Materials" ), 
+		"singular_label" => __( "Material" ), 
+		"rewrite" => array(
+				'slug' => 'material', 
+				'hierarchical' => true
+				)
+		)
+	);
+
+} // function: portfolio_filters END
 
 
 add_action('init', 'post_type');
-add_action( 'init', 'portfolio_filter', 0 );
+add_action( 'init', 'portfolio_filters', 0 );
 add_filter('post_updated_messages', 'portfolio_messages');
-
-
-
 ?>
