@@ -12,6 +12,10 @@ jQuery(window).load(function() {
 	$container.isotope({
 		itemSelector : 'li.item',	
 	});
+
+	jQuery(window).resize(function() {
+	$container.isotope('reLayout');
+	});
 	
 	// filter buttons
 	$('select.filters').change(function(){
@@ -30,6 +34,7 @@ jQuery(window).load(function() {
 
 		return false;
 	});
+
 
 	function lightbox() {
 		// Apply PrettyPhoto to find the relation with our portfolio item

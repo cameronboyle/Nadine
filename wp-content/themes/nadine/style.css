@@ -13,13 +13,34 @@ Version: 1.0
 
 select.filters { width:100%; }
 
-#portfolio-grid { margin-left:-35px; }
-#portfolio-grid .item { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; width:241px; margin:0; padding:15px 0 15px 35px; position:relative; }
+#portfolio-grid { max-width:750px; margin:0 auto; }
+#portfolio-grid .item { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; width:250px; margin:0; padding:15px 17px; position:relative; }
 #portfolio-grid .item-inner { position:relative; }
-#portfolio-grid .hover-caption {  opacity:0; color:#fff; text-decoration:none; position:absolute; top:0; left:0; width:100%; height:100%; background:#222; background:rgba(0,0,0,0.60); border-radius:3px; text-shadow:0 -1px 0 rgba(0,0,0,0.95); font-size:13px; -webkit-transition: opacity 0.4s ease-in-out; -moz-transition: opacity 0.4s ease-in-out; -o-transition: opacity 0.4s ease-in-out; transition: opacity 0.4s ease-in-out; }
+#portfolio-grid .hover-caption { filter:alpha(opacity=0); opacity:0; color:#fff; text-decoration:none; position:absolute; top:0; left:0; width:100%; height:100%; background:#222; background:rgba(0,0,0,0.60); border-radius:3px; text-shadow:0 -1px 0 rgba(0,0,0,0.95); font-size:13px; -webkit-transition: opacity 0.4s ease-in-out; -moz-transition: opacity 0.4s ease-in-out; -o-transition: opacity 0.4s ease-in-out; transition: opacity 0.4s ease-in-out; }
 #portfolio-grid .hover-caption .caption-inner { padding: 20% 12%; }
-#portfolio-grid .hover-caption:hover { opacity:0.90; }
+#portfolio-grid .hover-caption:hover { filter:alpha(opacity=90); opacity:0.9; }
 #portfolio-grid .hover-caption h2 { font-size:15px; line-height:16px; margin:0 0 10px; }
+
+@media (min-width:1200px) {
+  #portfolio-grid { max-width:1000px; }
+}
+@media (max-width:979px) {
+  #portfolio-grid { max-width:720px; }
+  #portfolio-grid .item { width:240px; }
+}
+@media (max-width:767px) {
+  #portfolio-grid { max-width:480px; }
+  #portfolio-grid .item { width:240px; }
+}
+@media (max-width:580px) {
+  #portfolio-grid { max-width:380px; }
+  #portfolio-grid .item { width:190px; padding:15px 10px 5px; }
+  #portfolio-grid .hover-caption .caption-inner { padding:20px; }
+}
+@media (max-width:460px) {
+  #portfolio-grid { max-width:260px; }
+  #portfolio-grid .item { width:260px; padding-bottom:0; }
+}
 
 /**** Isotope Filtering ****/
 .isotope-item { z-index: 2; }
